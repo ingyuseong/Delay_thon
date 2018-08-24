@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&subset=korean');
 
 /* DivTable.com */
 .divTable{
@@ -36,14 +37,49 @@
 }
 
 .selected {
-  background-color: red;
+  background-color: rgb(255, 174, 0);
 }
 
 .stage {
   border: 1px solid #999;
   width: 400px;
-  height: 50px;
-  margin-bottom: 30px;
+  height: 40px;
+  margin-bottom: 20px;
   text-align: center;
-  font-size: 2em
+  font-size: 1.5em
+}
+
+.show-title {
+  font-size: 4em;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 800;
+  margin-bottom: 0.1em;
+}
+
+.show-sub {
+  font-size: 1.4em;
+  font-family: 'Nanum Gothic', sans-serif;
+  margin-bottom: 1.3em;
+  display: inline
+}
+
+.show-status {
+  display: inline;
+}
+
+.show-content {
+  width: 100%;
+  overflow: auto;
+}
+
+h1 {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.ha {
+  color: rgb(255, 174, 0);
+}
+
+.ha:hover {
+  color: rgb(255, 100, 0)
 }

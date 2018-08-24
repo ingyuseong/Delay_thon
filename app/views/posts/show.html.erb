@@ -1,80 +1,94 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<div class="show-title">
   <%= @post.title %>
-</p>
+</div>
+<div class="d-flex justify-content-between">
+  <div class="show-sub">
+    <%= @post.summary %>
+  </div>
 
-<p>
-  <strong>Content:</strong>
+  <div>
+    <div class="btn btn-lg btn-success">
+      <% if @post.status == "1" %>
+        <strong>개발완료</strong>
+      <% elsif @post.status == "2"%>
+        <strong>개발중</strong>
+      <% else %>
+        <strong>포기</strong>
+      <% end%>
+    </div>
+
+    <div class="float-right" style="display: inline; text-align:center; margin-left: 20px">
+      <%= link_to '', like_path(@post), class:'fas fa-thumbs-up ha', style:'font-size: 2.4em' %>
+      <h1 style="display:inline"><strong><%= @post.likes %></strong></h1>
+    </div>
+  </div>
+</div>
+
+<div class="show-content">
   <%= @post.content.html_safe %>
-  <%= @post.summary %><br>
-  <% if @post.status == "1" %>
-    <strong>코딩다함 보러오셈 히히</strong>
-  <% elsif @post.status == "2"%>
-    <strong>아직 코딩중.. ㅠ</strong>
-  <% else %>
-    <strong>걍 포기함 다 망함</strong>
-  <% end%>
-</p>
-
-
-
-<div class="stage">무대</div>
-<div class="divTable">
-<div class="divTableBody">
-  <div class="divTableRow 1">
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-  </div>
-  <div class="divTableRow 2">
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-  </div>
-  <div class="divTableRow 3">
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-  </div>
-  <div class="divTableRow 4">
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-  </div>
-  <div class="divTableRow 5">
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-    <div class="divTableCell">&nbsp;</div>
-  </div>
-</div>
 </div>
 
-<%= link_to 'Like', like_path(@post) %> <p><%= @post.likes %></p>
+<h1>방문해서 더 자세히 보려면! <strong>팀테이블 위치<strong></h1>
+<br>
+<div class="float-center">
+  <div class="stage">무대</div>
+  <div class="divTable">
+    <div class="divTableBody">
+      <div class="divTableRow 1">
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+      </div>
+      <div class="divTableRow 2">
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+      </div>
+      <div class="divTableRow 3">
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+      </div>
+      <div class="divTableRow 4">
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+      </div>
+      <div class="divTableRow 5">
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+        <div class="divTableCell">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', confirm_path(@post)%>
-<%= link_to 'Back', posts_path %>
+<div class="text-right" style="margin-top:40px">
+<%= link_to '수정하기', confirm_path(@post), class:'btn btn-lg btn-light'%>
+<%= link_to '뒤로가기', posts_path, class:"btn btn-lg btn-light" %>
+</div>
 
 <script>
 var row=<%=@post.row%>
