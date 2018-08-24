@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2018_08_24_090640) do
     t.integer "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "row"
+    t.string "column"
   end
 
 end
