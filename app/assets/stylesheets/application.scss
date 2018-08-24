@@ -1,0 +1,83 @@
+@media screen and (min-width: 300px) {
+
+    .table {
+        position: absolute;
+        top: 20% !important;
+        left: 13% !important;
+        font-family: 'Gothic A1', sans-serif;
+    }
+
+}
+
+@media screen and (min-width: 960px) {
+
+    .table {
+        position: absolute;
+        top: 20% !important;
+        left: 18% !important;
+        font-family: 'Gothic A1', sans-serif;
+    }
+    
+}
+
+
+
+.font1 {
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.font2 {
+    font-weight: 400;
+    font-size: 1em;
+}
+
+
+/* DivTable.com */
+.divTable{
+	display: table;
+  width: 400px;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+}
+.divTableRow {
+  display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+  border-top: 1px solid #999999;
+  border-right: 1px solid #999;
+	display: table-cell;
+  padding: 3px 10px;
+  height: 100px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+
+.selected {
+  background-color: red;
+}
+
+.stage {
+  border: 1px solid #999;
+  width: 400px;
+  height: 50px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 2em
+}
