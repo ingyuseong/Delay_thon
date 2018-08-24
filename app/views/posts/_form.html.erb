@@ -17,10 +17,29 @@
   </div>
 
   <div class="field">
+    <%= form.label :"서비스 간단 요약" %>
+    <%= form.text_field :summary %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= tinymce :language => "en" %>
     <%= form.text_area :content, id: :post_content, class: "form-control tinymce", rows: "10" %>
 </div>
+
+  <div class="field">
+    <%= form.radio_button :status,'1', :checked => true %> 
+    <%= label :status_1, '코딩다함 보러오셈 히히' %>
+    <%= form.radio_button :status, '2' %>
+    <%= label :status_2, '아직 코딩중.. ㅠ' %>
+    <%= form.radio_button :status, '3' %>
+    <%= label :status_3, '걍 포기함 다 망함' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
 
 
   <div class="actions">
