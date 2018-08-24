@@ -14,17 +14,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order("updated_at DESC")
     if Post.all.count >= 3
-      puts "하하하하하하ㅏㅎ하하하하하하하하하하하하"
       @viewposts = Post.order("likes DESC")[0..3]
       @likeposts = Post.order("views DESC")[0..3]
-      @viewposts.each do |v|
-        puts "gkgkgkkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkg"
-        puts v
-      end
-      @likeposts.each do |l|
-        puts "gkgkgkkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkg"
-        puts l
-      end
     else
       @viewposts = Post.none
       @likeposts = Post.none
