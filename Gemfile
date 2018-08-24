@@ -6,6 +6,7 @@ ruby '2.4.0'
 gem 'tinymce-rails'
 
 gem 'figaro'
+gem 'impressionist'
 
 
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
