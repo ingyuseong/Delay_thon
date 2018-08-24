@@ -12,7 +12,23 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order("likes DESC")
+    @posts = Post.order("updated_at DESC")
+    if Post.all.count >= 3
+      puts "하하하하하하ㅏㅎ하하하하하하하하하하하하"
+      @viewposts = Post.order("likes DESC")[0..3]
+      @likeposts = Post.order("views DESC")[0..3]
+      @viewposts.each do |v|
+        puts "gkgkgkkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkg"
+        puts v
+      end
+      @likeposts.each do |l|
+        puts "gkgkgkkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkg"
+        puts l
+      end
+    else
+      @viewposts = Post.none
+      @likeposts = Post.none
+    end
   end
 
   # GET /posts/1
@@ -80,7 +96,7 @@ class PostsController < ApplicationController
 
   def search
     p_search = params[:search]
-    p_all = Post.order("likes DESC")
+    p_all = Post.order("updated_at DESC")
     p_id = []
     case p_search[:select]
     when "title"
@@ -89,16 +105,23 @@ class PostsController < ApplicationController
           p_id.push(p.id)
         end
       end
-      @posts = Post.where(id: p_id).order("likes DESC")
+      @posts = Post.where(id: p_id).order("updated_at DESC")
     when "content"
       p_all.each do |p|
         if p.content.include? p_search[:query]
           p_id.push(p.id)
         end
       end
-      @posts = Post.where(id: p_id).order("likes DESC")
+      @posts = Post.where(id: p_id).order("updated_at DESC")
     else
       @posts = Post.none
+    end
+    if Post.all.count >= 3
+      @viewposts = Post.order("likes DESC")[0..3]
+      @likeposts = Post.order("views DESC")[0..3]
+    else
+      @viewposts = Post.none
+      @likeposts = Post.none
     end
     render 'index'
   end
