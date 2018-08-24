@@ -2,15 +2,13 @@
 
 <h1>Posts</h1>
 
-<div class="container">
-  <h2>현재 추천 1등</h2>
-  <h2>현재 조회수 1등</h2>
-</div>
+
 
 <table class="table table-borderless container">
   <thead>
     <tr>
       <th>팀</th>
+      <th>likes</th>
       <th>views</th>
     </tr>
   </thead>
@@ -19,12 +17,19 @@
     <% @posts.each do |post| %>
       <tr>
         <td class="font2"><%= link_to post.title, post, :class => "font1" %> <br> <%= post.summary %> </td>
-        <td colspan="1" width="5%" align="left" style="border-bottom: 1px dashed gray;"> <%= "#{post.unique_impression_count} views" %>
+        <td colspan="1" width="5%" align="left" style="border-bottom: 1px dashed gray;" class="font3"><%= post.likes  %></td>
+        <td colspan="1" width="5%" align="left" style="border-bottom: 1px dashed gray;" class="font3"> <%= "#{post.unique_impression_count}" %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= form_tag search_path, method: :get do %>
+  <%= select_tag("search[select]", options_for_select([["제목","title"],["내용","content"]] )) %>
+  <%= text_field_tag "search[query]" %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 <%= link_to 'New Post', new_post_path %>

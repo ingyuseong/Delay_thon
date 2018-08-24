@@ -8,7 +8,17 @@
 <p>
   <strong>Content:</strong>
   <%= @post.content.html_safe %>
+  <%= @post.summary %><br>
+  <% if @post.status == "1" %>
+    <strong>코딩다함 보러오셈 히히</strong>
+  <% elsif @post.status == "2"%>
+    <strong>아직 코딩중.. ㅠ</strong>
+  <% else %>
+    <strong>걍 포기함 다 망함</strong>
+  <% end%>
 </p>
+
+
 
 <div class="stage">무대</div>
 <div class="divTable">
@@ -61,11 +71,15 @@
 </div>
 </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Like', like_path(@post) %> <p><%= @post.likes %></p>
+
+<%= link_to 'Edit', confirm_path(@post)%>
 <%= link_to 'Back', posts_path %>
 
 <script>
 var row=<%=@post.row%>
 var col=<%=@post.column%>
+console.log(row)
+console.log(col)
 $(`.divTableRow.${row}`).children().eq(col).addClass("selected")
 </script>
