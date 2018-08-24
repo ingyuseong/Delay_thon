@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
+<div class="d-flex flex-row justify-content-around">
+  <div>
+    <p class="font5">실시간 조회수 TOP</P>
+    <% @viewposts.each do |viewpost| %>
+      <p class="font4" style="text-align: center"><%= link_to viewpost.title, viewpost %></p>
+    <% end %>
+  </div>
+  <div>
+    <p class="font5">실시간 추천수 TOP</P>
+    <% @likeposts.each do |likepost| %>
+      <p class="font4" style="text-align: center"><%= link_to likepost.title, likepost %></p>
+    <% end %>
+  </div>
+</div>
 
 
 <table class="table table-borderless container">
@@ -33,4 +45,7 @@
     <%= submit_tag("Search") %>
   <% end %>
 </div>
-<%= link_to 'New Post', new_post_path %>
+
+<div class="searchbar2">
+  <%= link_to 'New Post', new_post_path %>
+</div>

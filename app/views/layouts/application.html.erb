@@ -15,6 +15,16 @@
   </head>
 
   <body class="container">
+  <div class="d-flex flex-row justify-content-center">
+    <div>
+      <%= image_tag("babylogo.png", class:"logo")%>
+    </div>
+    <div>
+      <a href="https://uni.likelion.org/hackathon/projects/93" target="_blank">
+        <%= image_tag("selload_logo.png", class: "logo2")%>
+      </a>
+    </div>
+  </div>
     <%= yield %>
   </body>
 </html>

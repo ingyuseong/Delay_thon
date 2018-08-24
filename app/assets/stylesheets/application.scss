@@ -4,7 +4,7 @@
 
     .table {
         position: absolute;
-        top: 20% !important;
+        top: 42% !important;
         left: 13% !important;
         font-family: 'Gothic A1', sans-serif;
     }
@@ -15,8 +15,8 @@
 
     .table {
         position: absolute;
-        top: 20% !important;
-        left: 18% !important;
+        top: 42% !important;
+        left: 19% !important;
         font-family: 'Gothic A1', sans-serif;
     }
     
@@ -28,6 +28,19 @@ table {
     overflow: auto;
 }
 
+.searchbar {
+    position: relative;
+    margin-top: 70%;
+    margin-left:39%;
+    margin-bottom: 8%;
+}
+
+.searchbar2 {
+    position: relative;
+    margin-top: 1%;
+    margin-left: 50%;
+    margin-bottom: 8%;
+}
 
 .font1 {
     font-weight: 600;
@@ -92,8 +105,30 @@ table {
   font-size: 2em
 }
 
-.searchbar {
-    position: relative;
-    top: 90% !important;
+.logo {
+    width: 240px;
+    height: 120px;
+    margin-top: 10%;
+    margin-bottom: 9%;
+    margin-right: 80px;
+}
 
+.logo2 {
+    width: 240px;
+    height: 80px;
+    margin-top: 16%;
+    margin-bottom: 5%;
+}
+
+
+.font4 {
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.font5 {
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 600;
 }
