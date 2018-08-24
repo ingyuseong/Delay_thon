@@ -6,7 +6,7 @@ class PostsController < ApplicationController
    def log_impression
       @hit_post = Post.find(params[:id])
       # this assumes you have a current_user method in your authentication system
-      @hit_post.impressions.create()
+      @hit_post.impressions.create(ip_address: request.remote_ip)
    end
 
   # GET /posts
@@ -18,6 +18,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    newviews = @post.views + 1
+    @post.update(views: newviews)
   end
 
   # GET /posts/new
