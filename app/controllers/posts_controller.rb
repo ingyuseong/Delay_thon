@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order("updated_at DESC")
     if Post.all.count >= 3
-      @viewposts = Post.order("likes DESC")[0..3]
-      @likeposts = Post.order("views DESC")[0..3]
+      @viewposts = Post.order("likes DESC")[0..2]
+      @likeposts = Post.order("views DESC")[0..2]
     else
       @viewposts = Post.none
       @likeposts = Post.none
