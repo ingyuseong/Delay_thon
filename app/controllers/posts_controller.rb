@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :likes]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :confirm, :confirm2, :likes]
 
   before_action :log_impression, :only=> [:show]
  
@@ -38,6 +38,13 @@ class PostsController < ApplicationController
     @post.update(views: newviews)
   end
 
+  def confirm
+    
+  end
+  def confirm2
+    
+  end
+
   # GET /posts/new
   def new
     @post = Post.new
@@ -45,6 +52,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    if @post.password != params[:password]
+      redirect_to posts_path
+    end
   end
 
   # POST /posts
@@ -80,6 +90,12 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    if @post.password != params[:password]
+      puts @post.password
+      puts params[:password]
+      redirect_to posts_path
+    end
+
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
