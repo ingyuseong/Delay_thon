@@ -52,8 +52,12 @@ ActiveRecord::Schema.define(version: 2018_08_24_090640) do
     t.string "status"
     t.string "summary"
     t.string "password"
+    t.integer "likes", default: 0
+    t.integer "views", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "row"
+    t.string "column"
   end
 
 end

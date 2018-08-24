@@ -1,23 +1,25 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :confirm, :confirm2]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :confirm, :confirm2, :likes]
 
   before_action :log_impression, :only=> [:show]
  
    def log_impression
       @hit_post = Post.find(params[:id])
       # this assumes you have a current_user method in your authentication system
-      @hit_post.impressions.create()
+      @hit_post.impressions.create(ip_address: request.remote_ip)
    end
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order("likes DESC")
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    newviews = @post.views + 1
+    @post.update(views: newviews)
   end
 
   def confirm
@@ -85,6 +87,38 @@ class PostsController < ApplicationController
     end
   end
 
+  def likes
+    num_like = @post.likes + 1
+    if @post.update(likes: num_like)
+      redirect_back fallback_location: { action: "show", id: @post.id }
+    end
+  end
+
+  def search
+    p_search = params[:search]
+    p_all = Post.order("likes DESC")
+    p_id = []
+    case p_search[:select]
+    when "title"
+      p_all.each do |p|
+        if p.title.include? p_search[:query]
+          p_id.push(p.id)
+        end
+      end
+      @posts = Post.where(id: p_id).order("likes DESC")
+    when "content"
+      p_all.each do |p|
+        if p.content.include? p_search[:query]
+          p_id.push(p.id)
+        end
+      end
+      @posts = Post.where(id: p_id).order("likes DESC")
+    else
+      @posts = Post.none
+    end
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -93,6 +127,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :status, :summary, :password)
+      params.require(:post).permit(:title, :content, :row, :column, :status, :summary, :password)
     end
 end

@@ -19,5 +19,67 @@
 </p>
 
 
+
+<div class="stage">무대</div>
+<div class="divTable">
+<div class="divTableBody">
+  <div class="divTableRow 1">
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+  </div>
+  <div class="divTableRow 2">
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+  </div>
+  <div class="divTableRow 3">
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+  </div>
+  <div class="divTableRow 4">
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+  </div>
+  <div class="divTableRow 5">
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+    <div class="divTableCell">&nbsp;</div>
+  </div>
+</div>
+</div>
+
+<%= link_to 'Like', like_path(@post) %> <p><%= @post.likes %></p>
+
 <%= link_to 'Edit', confirm_path(@post)%>
 <%= link_to 'Back', posts_path %>
+
+<script>
+var row=<%=@post.row%>
+var col=<%=@post.column%>
+console.log(row)
+console.log(col)
+$(`.divTableRow.${row}`).children().eq(col).addClass("selected")
+</script>
