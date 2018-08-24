@@ -2,6 +2,12 @@
 
 <h1>Posts</h1>
 
+<%= form_tag search_path, method: :get do %>
+  <%= select_tag("search[select]", options_for_select([["제목","title"],["내용","content"]] )) %>
+  <%= text_field_tag "search[query]" %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -23,7 +29,6 @@
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= post.likes %></td>
         <td><%= post.views %></td>
-        <!--<td width="5%" align="left" style="border-bottom: 1px dashed gray;"> <%= #"#{post.views} views" %>-->
       </tr>
     <% end %>
   </tbody>

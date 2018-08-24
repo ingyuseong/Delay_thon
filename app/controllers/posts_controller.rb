@@ -78,6 +78,31 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    p_search = params[:search]
+    p_all = Post.order("likes DESC")
+    p_id = []
+    case p_search[:select]
+    when "title"
+      p_all.each do |p|
+        if p.title.include? p_search[:query]
+          p_id.push(p.id)
+        end
+      end
+      @posts = Post.where(id: p_id).order("likes DESC")
+    when "content"
+      p_all.each do |p|
+        if p.content.include? p_search[:query]
+          p_id.push(p.id)
+        end
+      end
+      @posts = Post.where(id: p_id).order("likes DESC")
+    else
+      @posts = Post.none
+    end
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
