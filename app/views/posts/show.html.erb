@@ -10,9 +10,10 @@
   <%= @post.content.html_safe %>
 </p>
 
+<div class="stage">무대</div>
 <div class="divTable">
 <div class="divTableBody">
-  <div class="divTableRow">
+  <div class="divTableRow 1">
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
@@ -21,7 +22,7 @@
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
   </div>
-  <div class="divTableRow">
+  <div class="divTableRow 2">
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
@@ -30,7 +31,7 @@
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
   </div>
-  <div class="divTableRow">
+  <div class="divTableRow 3">
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
@@ -39,7 +40,7 @@
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
   </div>
-  <div class="divTableRow">
+  <div class="divTableRow 4">
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
@@ -48,7 +49,7 @@
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
   </div>
-  <div class="divTableRow">
+  <div class="divTableRow 5">
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
     <div class="divTableCell">&nbsp;</div>
@@ -62,3 +63,9 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<script>
+var row=<%=@post.row%>
+var col=<%=@post.column%>
+$(`.divTableRow.${row}`).children().eq(col).addClass("selected")
+</script>
