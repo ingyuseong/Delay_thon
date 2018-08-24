@@ -8,6 +8,7 @@ gem 'tinymce-rails'
 gem 'figaro'
 gem 'impressionist'
 
+gem 'bootstrap', '~> 4.1.3'
 
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 gem 'carrierwave'
