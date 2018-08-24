@@ -21,6 +21,16 @@
     <%= form.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= form.label :row %>
+    <%= form.select :row, options_for_select((1..7).step(1)) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :column %>
+    <%= form.select :column, options_for_select([['앞',1],['중간',2],['뒤',3]]) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
