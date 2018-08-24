@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   root "posts#index"
   post '/tinymce_assets' => 'tinymce_assets#create'
+  get '/posts/:id/likes' => 'posts#likes', as: 'like'
 
 end

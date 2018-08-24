@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :status
       t.string :summary
       t.string :password
+      t.integer :likes, default: 0
 
       t.timestamps
     end
