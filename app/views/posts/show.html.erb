@@ -67,5 +67,7 @@
 <script>
 var row=<%=@post.row%>
 var col=<%=@post.column%>
+console.log(row)
+console.log(col)
 $(`.divTableRow.${row}`).children().eq(col).addClass("selected")
 </script>
